@@ -1,4 +1,4 @@
-const int mod = 1000000007;
+const int mod = 1000000007; //10^9 + 7
 long long pot(long long b,long long e){
     if(e==0)
         return 1;
