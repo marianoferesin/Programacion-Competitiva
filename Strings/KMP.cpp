@@ -1,3 +1,4 @@
+//Encontrar patron t en s (muestra indices)
 void kmp(const string &s,const string &t){
 	int n = s.size(),m = t.size();
 	vector<int> v(m);
