@@ -21,14 +21,18 @@ void kmp(const string &s,const string &t){
 	//KMP
 	i = 0; j = 0;
 	while(i<n){
-		if(s[i]==t[j])
-			j++;
-		else
-			j = j ? v[j-1] : 0;
-		i++;
+		if(s[i]==t[j]){
+			i++; j++;
+		}
 		if(j==m){
 			cout<<"ans: "<<i-m+1<<endl;//pos del patron
-			j = 0;
+			j = v[j-1];
+		}
+		else if(i<n and s[i]!=t[j]){
+			if(j)
+				j = v[j-1];
+			else
+				i++;
 		}
 	}
 }
