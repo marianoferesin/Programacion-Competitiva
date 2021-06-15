@@ -1,4 +1,3 @@
-// p[i] es el tamaño del mayor prefijo s[0..i] que empieza en el substring i.
 vector<int> prefixFunction(const string &s){
 	int n = s.size();
 	vector<int> p(n);
