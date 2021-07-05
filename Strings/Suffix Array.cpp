@@ -1,4 +1,4 @@
-//Devuelve el suffix array del string s -- s[0] es el suffijo que empieza en '$'
+//Devuelve el suffix array del string s -- s[0] es el sufijo que empieza en '$'
 // $ debe ser un caracter menor que cualquier otro caracter posible
 //O(NlogN)
 vector <int> suffix_array(string  s){
