@@ -26,15 +26,19 @@ int get(int l,int r){
 }
 
 //preprocesamiento
-//potencias de a
-pota[0] = 1;
+
+	//llamar al string s
+	int n = s.size();
+
+	//potencias de a
+	pota[0] = 1;
 	for(int i = 1; i<1000'005; i++) 
 		pota[i] = ((long long)pota[i-1] * (long long)a)%mod;
 
-//inversos de las potencias de a
-forn(i,100'0005) inv[i] = pot(pota[i],mod-2);
+	//inversos de las potencias de a
+	forn(i,100'0005) inv[i] = pot(pota[i],mod-2);
 
-//hashing en rangos
-h[0] = (int)s[0];
-for(int i = 1; i<n; i++)
+	//hashing en rangos
+	h[0] = (int)s[0];
+	for(int i = 1; i<n; i++)
 		h[i] = ((long long)h[i-1] + (long long)(pota[i] * (long long)s[i])%mod)%mod;
