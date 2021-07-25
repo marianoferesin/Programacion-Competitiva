@@ -1,6 +1,6 @@
 //topological sort -- detecta ciclos :D
 int n; // number of vertices
-vector<set<int>> adj; // adjacency list of graph
+vector<vector<int>> adj; // adjacency list of graph
 vector<int> color; //visited->0 - on stack->1 - ready->2
 vector<int> ans;
 
