@@ -1,4 +1,5 @@
 //en l queda guardado el lower bound;
+//funcion de la forma 0 0 0 0 1 1 1 1 1
 vector <int> v = {-8,-2,0,0,0,3,3,3,4,5,6,7};
 int n = v.size();
 int x = 4;
