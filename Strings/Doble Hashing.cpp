@@ -26,6 +26,8 @@ struct DobleHash{
 	vector <unsigned long long> inv_pot_A;
 	vector <unsigned long long> inv_pot_C;
 	
+	DobleHash() {}
+	
 	DobleHash(string aux) : s{aux} {
 		n = s.size();
 		h_0_31.resize(n+20);
