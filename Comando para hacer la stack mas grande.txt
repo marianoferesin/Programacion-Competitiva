@@ -1,0 +1,5 @@
+g++ -DNANO -std=c++17 -g -Wl,--stack=268435456 -O2 -Wconversion -Wshadow -Wall -Wextra -o "%e" "%f"
+
+
+-----------
+Para utilizar por ejemplo en la hackercup
