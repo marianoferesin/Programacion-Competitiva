@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//O(N*sqrt(q))
 const int bloque = 500; //sqrt(n) aprox
 int n,q;
 struct Query{// [l,r)
