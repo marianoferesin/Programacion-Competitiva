@@ -1,5 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 typedef long long tint;
-const int mxn = 1<<20; //cambiarlo
+const int mxn = 1<<20;
 struct Data{
 	tint s;
 	Data(tint _s=0){
@@ -43,7 +46,7 @@ struct segTree{
 	Data query(int a,int b,int k,int l,int r){
 		//[l,r] es el rango actual, [a,b] es la query, k posicion del vector
 		if(r<a or l>b)
-			return Data(); //poner "neutro" ej 1e18 para min queries
+			return Data();
 		if(a<=l and r<=b)
 			return data[k];
 		int medio = (l+r)/2;
@@ -52,3 +55,28 @@ struct segTree{
 		return ret;
 	}
 };
+
+//https://cses.fi/problemset/task/1648/
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n,q;
+	cin>>n>>q;
+	segTree t;
+	Data *p = t.init(n);
+	for(int i=0;i<n;i++){
+		cin>>p[i].s;
+	}
+	t.build();
+	while(q--){
+		int a,b,c;
+		cin>>a>>b>>c;
+		if(a==1){
+			t.update(b-1,Data(c));
+		}
+		else{
+			cout<<t.query(b-1,c-1).s<<'\n';
+		}
+	}
+	return 0;
+}
