@@ -24,6 +24,7 @@ struct Lazy{
 		sumar += lazy.sumar;
 	}
 	void update(Data& d,tint tam) const{//Updatea Data con Lazy
+		//tam es el tamaño del nodo a actualizar
 		d.s += sumar*tam;
 	}
 };
