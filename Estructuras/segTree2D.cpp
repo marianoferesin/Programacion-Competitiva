@@ -13,7 +13,7 @@ struct Data{
 		s = l.s+r.s;
 	}
 };
-char vec[mxn][mxm];
+int vec[mxn][mxm];
 struct segTree2D{
 	int n,m; //1025
 	Data st[2*mxn][2*mxm];
@@ -21,7 +21,7 @@ struct segTree2D{
 		n = _n;	m = _m;
 		for(int i=0;i<n;i++)
 			for(int j=0;j<m;j++)
-				st[i+n][j+m] = vec[i][j]=='*';
+				st[i+n][j+m] = vec[i][j];
 		for(int i=0;i<n;i++)
 			for(int j=m-1;j>=0;j--)
 				st[i+n][j].merge(st[i+n][j<<1],st[i+n][j<<1|1]);
@@ -30,7 +30,7 @@ struct segTree2D{
 				st[i][j].merge(st[i<<1][j],st[i<<1|1][j]);
 	}
 	void update(int x,int y,Data v){//O(logn*logm)
-		st[x+n][y+m].s ^= 1;
+		st[x+n][y+m] = v;
 		for(int j=y+m;j>1;j>>=1)
 			st[x+n][j>>1].merge(st[x+n][j],st[x+n][j^1]);
 		for(int i=x+n;i>1;i>>=1)
@@ -63,15 +63,18 @@ int main(){
 	cin.tie(0);
 	segTree2D s;
 	int n,q;
-	cin>>n>>q;
-	for(int i=0;i<n;i++)
-		for(int j=0;j<n;j++)
-			cin>>vec[i][j];
-	s.build(n,n);
-	while(q--){
-		int x,y,x2,y2;
-		cin>>x>>y>>x2>>y2;
-		cout<<s.query(x-1,y-1,x2,y2).s<<'\n';
+	while(cin>>n>>q){
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n;j++)
+				cin>>vec[i][j];
+		s.build(n,n);
+		while(q--){
+			int x,y,x2,y2;
+			cin>>x>>y;
+			s.update(x-1,y-1,Data(1));
+			cin>>x>>y>>x2>>y2;
+			cout<<s.query(x-1,y-1,x2,y2).s<<'\n';
+		}
 	}
 	return 0;
 }
