@@ -2,7 +2,7 @@
 using namespace std;
 
 typedef long long tint;
-const int mxn = 1<<20;
+const int mxn = 1<<15;
 struct Data{
 	tint s;
 	Data(tint _s=0){
